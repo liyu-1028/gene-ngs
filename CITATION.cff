@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "gene-ngs: synthetic cancer NGS cohort generation pipeline"
+authors:
+  - family-names: Li
+    given-names: Yanlong
+    email: liyanlong8468@163.com
+version: v1.0.0
+date-released: "2026-09-17"
+license: MIT

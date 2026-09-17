@@ -1,0 +1,25 @@
+# Data (never commit patient-derived or bulk synthetic data)
+data/
+*.csv
+*.tsv
+*.fastq
+*.fastq.gz
+*.tar
+*.tar.gz
+*.tar.part-*
+*.rdm.gz
+*.pbe.gz
+*.qm.gz
+
+# Secrets
+.env
+*.token
+
+# Runtime artifacts
+*.log
+logs/
+out/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/

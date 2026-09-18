@@ -4,7 +4,6 @@ title: "gene-ngs: synthetic cancer NGS cohort generation pipeline"
 authors:
   - family-names: Li
     given-names: Yanlong
-    email: liyanlong8468@ahnu.edu.cn
     affiliation: Anhui Normal University
   - family-names: Shen
     given-names: Zhangyi

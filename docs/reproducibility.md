@@ -148,6 +148,24 @@ tolerance for the generative stage):
 * Hi-coverage anchor study: 102/124 anchors detected (ALT≠REF), Pearson r = 0.851
   between specified and observed VAF
 
+### Privacy metric control experiment
+
+The "Membership_Inference_Attack" entry in `privacy_metrics.json` (attacker accuracy
+0.679 > 0.5 baseline) is a real-vs-synthetic discriminability proxy, not a
+memorization test. `src/stage5/mia_control_experiment.py` establishes its background:
+
+| Experiment | Accuracy | Meaning |
+|---|---|---|
+| R0 real vs synthetic | 0.684 | reproduces published 0.679 |
+| C1 realA vs realB (disjoint REAL halves) | 0.496 | intrinsic background ≈ chance |
+| C2 synA vs synB | 0.503 | attacker calibrated |
+| C3 C1 × 3 seeds | 0.490–0.511 | background stable |
+
+Since perfect memorization would *reduce* discriminability toward 0.5, a value of
+0.68 quantifies the generator fidelity gap (consistent with the disclosed TRTR/TSTR
+utility gap), while membership privacy is covered by Exact_Match = 0 and
+DCR leakage = 0.0 (both PASS). Results: `evaluation/mia_control_results.json`.
+
 ## 8. Known quirks
 
 * synggen emits one FASTQ per thread (`target_regions_N.R1.fastq`) — concatenate

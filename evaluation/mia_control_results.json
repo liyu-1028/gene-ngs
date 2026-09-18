@@ -1,0 +1,26 @@
+{
+  "experiment": "Real-vs-synthetic discriminability control (the metric labelled MIA in privacy_metrics.json)",
+  "date": "2026-09-18",
+  "dataset": "synthetic_msk_impact_2017 (real n=10,945 / synthetic n=10,328)",
+  "attacker": "RandomForest(100, depth=5), 50/50 stratified split, seed=42 \u2014 identical to src/stage5/privacy_assessment.py",
+  "interpretation": "R0 reproduces the published 0.679. C1/C3: two disjoint halves of the REAL cohort are indistinguishable (acc~0.5, 4 seeds) -> the 0.68 signal is NOT a dataset-intrinsic artifact. C2: attacker calibrated. Since a discriminator that detects synthetic records measures generator fidelity gap (perfect memorization would push acc toward 0.5), this metric quantifies fidelity, while membership-privacy is covered by Exact_Match=0 and DCR leakage=0.0 (both PASS).",
+  "results": {
+    "R0_real_vs_syn": {
+      "acc": 0.6843,
+      "f1": 0.686
+    },
+    "C1_realA_vs_realB": {
+      "acc": 0.4958,
+      "f1": 0.5556
+    },
+    "C2_synA_vs_synB": {
+      "acc": 0.5027,
+      "f1": 0.5169
+    },
+    "C3_real_halves_multiseed": [
+      0.5111,
+      0.5026,
+      0.4896
+    ]
+  }
+}
